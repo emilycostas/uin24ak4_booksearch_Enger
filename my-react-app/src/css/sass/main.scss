@@ -1,10 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 html, body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
+    background-color: rgb(255, 255, 255);
 }
 
-h1, h2, h3 {
+header{
+    display:block;
+    align-items: center;
+    padding: 30px;
+}
+
+.pistol{
+    width: 130px;
+    height: auto;
+    transform: translate(400px, -110px);
+}
+
+h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 900;
+    color: rgb(143, 0, 0);
+    margin: 0;
+}
+
+h2, h3 {
     font-weight: 600;
+}
+
+.amazon-search-button{
+    display: inline-block;
+    padding: 0.3rem 1em;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Book{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bookCard{
+    display: block;
+    flex: 0 0 calc(33% - 30px);
+    margin: 10px;
+    padding: 4px;
+    border: 2px solid black;
+}
+
+img{
+    height: auto;
+    width: 250px;
 }

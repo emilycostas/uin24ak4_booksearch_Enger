@@ -4,6 +4,7 @@ import Layout from './Components/Layout'
 import SearchResults from './Components/SearchResults'
 import BookCard from './Components/BookCard'
 import './App.css'
+import './css/sass/main.scss'
 
 function App() {
   const [books, setBooks] = useState([])

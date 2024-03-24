@@ -6,6 +6,7 @@ export default function Layout({children}){
         <>
         <header>
             <h1>James Bond Books</h1>
+                <img src="./src/vecteezy_gun_1198859.png" alt="pistol" className="pistol" /*Kilde bilde: https://www.vecteezy.com/png/1198859-gun */ />
         </header>
         <main>
             {children}
