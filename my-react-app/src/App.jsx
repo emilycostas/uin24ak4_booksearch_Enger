@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import Layout from './Components/Layout'
+import SearchResults from './Components/SearchResults'
+import BookCard from './Components/BookCard'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState([])
+
+  const getData = async () => {
+    const response = await fetch('https://openlibrary.org/search.json?q=James+Bond&mode=everything&subject_facet=James+Bond+%28Fictitious+character%29')
+    const data = await response.json()
+    setBooks(data.docs)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<BookCard books={books} />} />
+          <Route path="/book/:bookid" element={<SearchResults books={books} />} />
+        </Routes>
+      </Layout>
+    </Router>
   )
 }
 
