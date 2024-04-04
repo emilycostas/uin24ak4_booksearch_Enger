@@ -1,44 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+//Setter variabler som kan gjenbrukes nedover.
+$fonttitle_color: rgb(112, 23, 8);
+$primarycolor: rgb(255, 129, 45);
+$secondarycolor: rgb(255, 208, 177);
+$bordercolor: rgb(255, 229, 211);
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$font: 'Poppins', sans-serif;
+$font_title: 'Bebas Neue', sans-serif;
+
 html, body {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font;
     font-weight: 300;
-    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to right, $primarycolor, $secondarycolor, $primarycolor);
 }
 
 header{
     display:block;
-    align-items: center;
-    padding: 30px;
+    padding: 40px;
 }
 
-.pistol{
-    width: 130px;
-    height: auto;
-    transform: translate(400px, -110px);
+.pistol {
+    width: 8em;
+}
+
+@media (min-width:845px) {
+    .pistol{
+        width: 130px;
+        height: auto;
+        transform: translate(410px, -110px);
+    }
 }
 
 h1{
-    font-family: "Bebas Neue", sans-serif;
+    font-family: $font_title;
     font-weight: 900;
-    color: rgb(143, 0, 0);
+    color: $fonttitle_color;
     margin: 0;
 }
 
 h2, h3 {
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 2.2em;
+    font-family: $font_title;
+    padding: 20px;
+    text-transform: uppercase;
 }
 
-.amazon-search-button{
+p{
+    text-align: left;
+    margin-left: 14%;
+    font-family: $font;
+}
+
+@media (min-width:650px) {
+    p {
+        text-align: left;
+        margin-left: 50px;
+        font-family: $font;
+    }
+}
+
+.amazon-button{
     display: inline-block;
-    padding: 0.3rem 1em;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
+    padding: 0.4rem 1em;
+    border: 2px solid $white;
+    border-radius: 25px;
+    background-color: $white;
+    color: $black;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
+    position: relative;
     cursor: pointer;
 }
 
@@ -47,15 +81,55 @@ h2, h3 {
     flex-wrap: wrap;
 }
 
-.bookCard{
+.bookCard, .searchResults{
     display: block;
-    flex: 0 0 calc(33% - 30px);
-    margin: 10px;
-    padding: 4px;
-    border: 2px solid black;
+    border-bottom: 4px solid $bordercolor;
+    background-image: linear-gradient($primarycolor, $secondarycolor);
+    padding-bottom: 1em;
+    width: 100%;
 }
+
+@media (min-width:750px) {
+    .bookCard, .searchResults{
+        display: block;
+        flex: 0 0 calc(33% - 30px);
+        margin: 10px;
+        padding: 2px;
+        padding-bottom: 1em;
+        border: 4px solid $bordercolor;
+        background-image: linear-gradient($primarycolor, $secondarycolor);
+        justify-content: space-around;
+    }
+}
+
 
 img{
     height: auto;
-    width: 250px;
+    width: 180px;
+}
+
+.SearchBar {
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    padding: 5px 15px;
+    height: 35px;
+    width:90%;
+}
+
+@media (min-width:650px) {
+    .SearchBar {
+        border: none;
+        border-radius: 25px;
+        outline: none;
+        padding: 5px 15px;
+        height: 35px;
+        width:50%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        background-color: $white;
+    }
 }
